@@ -1,0 +1,728 @@
+:root {
+    --primary: #b6895b;
+    --bg: #010101;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg);
+    color: white;
+    min-height: 4000px;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 7%;
+    border-bottom: 1px solid #84613f;
+    background-color: rgba(1, 1, 1, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.logo {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.nav a {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0 1rem;
+    display: inline-block;
+}
+
+.nav a:hover {
+    color: var(--primary);
+}
+
+.nav a::after {
+    content: '';
+    display: block;
+    border-bottom: 0.1rem solid var(--primary);
+    padding-bottom: 0.5rem;
+    transform: scaleX(0);
+    transition: 0.2s linear;
+}
+
+.nav a:hover::after {
+    transform: scaleX(0.5);
+}
+
+.extra button {
+    color: white;
+    background: none;
+    margin: 0 0.5rem;
+    cursor: pointer;
+}
+
+.extra button:hover {
+    color: var(--primary);
+}
+
+#hamburger {
+    display: none;
+}
+
+/* Search */
+.search-form {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: 50rem;
+    height: 5rem;
+    position: absolute;
+    top: 100%;
+    right: 7%;
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: 0.3s;
+}
+
+.search-form.active {
+    transform: scaleY(1);
+}
+
+.search-form input {
+    font-size: 1.6rem;
+    padding: 1rem;
+    width: 100%;
+}
+
+.search-form label {
+    color: var(--bg);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-right: 1.5rem;
+}
+
+/* Shopping-cart */
+.shopping-cart {
+    position: absolute;
+    background-color: white;
+    width: 35rem;
+    height: 100vh;
+    top: 100%;
+    right: -100%;
+    color: var(--bg);
+    transition: 0.3s;
+}
+
+.shopping-cart.active {
+    right: 0;
+}
+
+.cart {
+    margin: 0 1rem;
+}
+
+.cart-img {
+    display: flex;
+    align-items: center;
+    margin: 2rem 0;
+    gap: 0.5rem;
+    border-bottom: 1px dashed #666;
+    padding-bottom: 1rem;
+    position: relative;
+}
+
+.cart img {
+    height: 6rem;
+    border-radius: 50%;
+}
+
+.cart-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.cart-price {
+    font-size: 1.2rem;
+}
+
+.cart-price span {
+    text-decoration: line-through;
+    font-size: 1rem;
+}
+
+.remove {
+    position: absolute;
+    right: 1rem;
+    cursor: pointer;
+}
+
+.remove:hover {
+    color: var(--primary);
+}
+
+/* Hero */
+.hero {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('../img/kopi.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    mask-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0));
+    -webkit-mask-image: linear-gradient(rgba(0,0,0,1) 85%, rgba(0,0,0,0));
+}
+
+.hero .content {
+    padding: 1.4rem 7%;
+    max-width: 60rem;
+}
+
+.hero h1 {
+    font-size: 5em;
+    line-height: 1.2;
+    text-shadow: 1px 1px 3px rgba(1,1,3,0.5);
+}
+
+.hero p {
+    font-size: 1.6rem;
+    margin-top: 1rem;
+    font-weight: 100;
+    line-height: 1.2;
+    text-shadow: 1px 1px 3px rgba(1,1,3,0.5);
+    mix-blend-mode: difference;
+}
+
+.hero a {
+    color: white;
+    background-color: var(--primary);
+    padding: 1rem 2rem;
+    font-size: 1.3rem;
+    display: inline-block;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 3px rgba(1,1,3,0.5);
+    transition: 0.2s;
+}
+
+.hero a:hover {
+    background-color: #d8a26d;
+}
+
+/* About */
+.about,
+.menu,
+.product,
+.contact {
+    padding: 8rem 7% 1.4rem;
+}
+
+.about h2,
+.menu h2,
+.product h2,
+.contact h2 {
+    text-align: center;
+    font-size: 2.6rem;
+    margin-bottom: 3rem;
+}
+
+.about h2 span,
+.menu h2 span,
+.product h2 span,
+.contact h2 span {
+    color: var(--primary);
+}
+
+.about .row {
+    display: flex;
+}
+
+.about-img {
+    flex: 1 1 45rem;
+}
+
+.about img {
+    width: 100%;
+}
+
+.about .content {
+    flex: 1 1 35rem;
+    padding: 0 1rem;
+}
+
+.about h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.about p {
+    font-size: 1.4rem;
+    font-weight: 100;
+    margin-bottom: 1rem;
+}
+
+/* Menu */
+.menu h2,
+.product h2,
+.contact h2 {
+    margin-bottom: 1rem;
+}
+
+.menu p,
+.product p,
+.contact p {
+    text-align: center;
+    max-width: 35rem;
+    margin: auto;
+    font-size: 1.3rem;
+    font-weight: 100;
+}
+
+.menu-card {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.menu-img {
+    width: 250px;
+    margin-bottom: 4rem;
+}
+
+.menu img {
+    width: 80%;
+    border-radius: 50%;
+
+}
+
+.menu h3 {
+    font-size: 1.4rem;
+    margin: 0.5rem auto 1rem;
+}
+
+.menu-price {
+    font-size: 1.3rem;
+    font-weight: 100;
+}
+
+/* Product */
+.product .row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    margin-top: 5rem;
+    text-align: center;
+    gap: 1.5rem;
+}
+
+.product-card {
+    border: 1px solid #666;
+    padding: 2rem;
+}
+
+.product-icon {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.product-icon button {
+    background: none;
+    color: white;
+    height: 4rem;
+    width: 4rem;
+    border: 1px solid #666;
+    border-radius: 50%;
+    margin: 0.3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product button:hover {
+    border: var(--primary);
+    background-color: var(--primary);
+}
+
+.product-img {
+    padding: 1rem;
+}
+
+.product img {
+    height: 25rem;
+}
+
+.product-content h3 {
+    font-size: 2rem;
+}
+
+.product-star {
+    padding: 0.8rem;
+    font-size: 1.7rem;
+}
+
+.star {
+    fill: var(--primary);
+    color: var(--primary);
+}
+
+.product-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.product-price span {
+    text-decoration: line-through;
+    font-size: 1rem;
+    font-weight: lighter;
+}
+
+/* Contact */
+.contact .row {
+    margin-top: 3rem;
+    background-color: #222;
+    display: flex;
+}
+
+.map {
+    flex: 1 1 45rem;
+}
+
+.contact form {
+    flex: 1 1 45rem;
+    text-align: center;
+    padding: 5rem 2rem;
+}
+
+.input-grup {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg);
+    margin-top: 2rem;
+    border: 1px solid #eee;
+    padding-left: 2rem;
+}
+
+.contact input {
+    background: none;
+    color: white;
+    font-size: 1.6rem;
+    padding: 2rem;
+}
+
+.contact .btn {
+    background-color: var(--primary);
+    color: white;
+    margin-top: 3rem;
+    font-size: 1.3rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.contact .btn:hover {
+    background-color: #d8a26d;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary);
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1rem 0 3rem;
+}
+
+.media {
+    padding: 1rem;
+}
+
+.media a {
+    color: white;
+    margin: 1rem;
+}
+
+.media a:hover,
+.link a:hover {
+    color: var(--bg);
+}
+
+.link a {
+    color: white;
+    margin: 1rem;
+}
+
+.link {
+    margin-bottom: 1rem;
+}
+
+.credit {
+    font-size: 0.8rem;
+}
+
+.credit a {
+    color: var(--bg);
+    font-weight: bold;
+}
+
+/* Product Modal Box */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: rgba(0,0,0,0.7);
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    background-color: white;
+    margin: 15% auto;
+    width: 80%;
+    padding: 1.5rem;
+    position: relative;
+    animation: animationModal 0.5s;
+}
+
+/* animation modal */
+@keyframes animationModal {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+    
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+.close {
+    position: absolute;
+    right: 2rem;
+    background: none;
+    cursor: pointer;
+}
+
+.modal-content {
+    display: flex;
+    color: var(--bg);
+}
+
+.modal-content img {
+    height: 20rem;
+    margin-right: 2rem;
+}
+
+.modal-name h3 {
+    font-size: 1.8rem;
+}
+
+.modal-name p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.modal-stars {
+    padding: 0.3rem 0;
+}
+
+.modal-price {
+    font-size: 1.2rem;
+}
+
+.modal-price span {
+    text-decoration: line-through;
+    font-size: 1rem;
+}
+
+.modal-cart {
+    background-color: var(--primary);
+    color: white;
+    padding: 1rem 1.6rem;
+    width: 12rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    cursor: pointer;
+    gap: 0.5rem;
+    transition: 0.2s;
+}
+
+.modal-cart:hover {
+    background-color: #d8a26d;
+}
+
+/* Media Queries */
+/* Laptop */
+@media(max-width: 1366px) {
+    html {
+        font-size: 75%;
+    }
+}
+
+/* Tablet */
+@media(max-width: 780px) {
+    html {
+        font-size: 62.5%;
+    }
+    
+    #hamburger {
+        display: inline-block;
+    }
+
+    .nav {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: white;
+        width: 30rem;
+        height: 100vh;
+        transition: 0.2s;
+    }
+
+    .nav.active {
+        right: 0;
+    }
+
+    .nav a {
+        color: var(--bg);
+        display: block;
+        font-size: 2rem;
+        margin: 0.5rem;
+        padding: 1rem;
+    }
+    
+    .nav a::after {
+        transform-origin: 0;
+    }
+
+    .nav a:hover::after {
+        transform: scaleX(0.2);
+    }
+
+    .search-form {
+        width: 80%;
+        right: 2rem;
+    }
+
+    .cart-price {
+        font-size: 1.3rem;
+    }
+
+    .cart-price span {
+        font-size: 1.2rem;
+    }
+
+    .about .row {
+        flex-wrap: wrap;
+    }
+
+    .about img {
+        height: 25rem;
+        object-fit: contain;
+        object-position: center;
+    }
+
+    .about .content {
+        padding: 0;
+    }
+
+    .about h3 {
+        font-size: 2rem;
+        margin-top: 1rem;
+    }
+
+    .about p {
+        font-size: 1.6rem;
+    }
+
+    .menu p,
+    .menu-price,
+    .contact p {
+        font-size: 1.5rem;
+    }
+
+    .menu h3 {
+        font-size: 1.6rem;
+    }
+
+    .product-price {
+        font-size: 1.4rem;
+    }
+
+    .product-price span {
+        font-size: 1.2rem;
+    }
+
+    .contact .row {
+        flex-wrap: wrap;
+    }
+
+    .map {
+        height: 25rem;
+    }
+
+    .contact form {
+        padding-top: 0;
+    }
+
+    .container {
+        margin: 11.2% auto;
+    }
+
+    .modal-content {
+        flex-wrap: wrap;
+    }
+
+    .modal-name h3 {
+        margin-top: 0.5rem;
+    }
+
+    .modal-name p {
+        font-size: 1.4rem;
+    }
+
+    .modal-price {
+        font-size: 1.4rem;
+    }
+
+    .modal-price span {
+        font-size: 1.2rem;
+    }
+
+    .modal-cart {
+        width: 12.5rem;
+    }
+}
+
+/* Mobile */
+@media(max-width: 450px) {
+    html {
+        font-size: 55%;
+    }
+}
